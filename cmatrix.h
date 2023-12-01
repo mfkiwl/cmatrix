@@ -33,12 +33,18 @@ extern int CMatrixd_Print(double* matrix, int row, int column);
 extern int CMatrixf_Print(float* matrix, int row, int column);
 extern int CMatrixi_Print(int* matrix, int row, int column);
 
-extern void CMatrixd_copy(double* mat_dest, const double* mat_src, int row, int col);
+extern void CMatrixd_Copy(double* mat_dest, const double* mat_src, int row, int col);
+extern void CMatrixf_Copy(float* mat_dest, const float* mat_src, int row, int col);
+extern void CMatrixi_Copy(int* mat_dest, const int* mat_src, int row, int col);
 
-extern void CMatrixf_copy(float* mat_dest, const float* mat_src, int row, int col);
-extern void CMatrixi_copy(int* mat_dest, const int* mat_src, int row, int col);
+extern void CMatrixd_Mul(const char* transpose, const double* left_matrix, const double* right_matrix,
+	int left_mat_row, int l_row_r_col, int right_mat_col, double alpha, double beta, double* result_matrix);
+extern void CMatrixf_Mul(const char* transpose, const float* left_matrix, const float* right_matrix,
+	int left_mat_row, int l_row_r_col, int right_mat_col, float alpha, float beta, float* result_matrix);
+extern void CMatrixi_Mul(const char* transpose, const int* left_matrix, const int* right_matrix,
+	int left_mat_row, int l_row_r_col, int right_mat_col, int alpha, int beta, int* result_matrix);
 
-
+extern int CMatrix_Inv(double* matrix, int order);
 
 #endif // !CMATRIX_H
 
